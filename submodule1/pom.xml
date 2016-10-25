@@ -7,6 +7,11 @@
   <version>1.0-SNAPSHOT</version>
   <name>submodule1</name>
   <url>http://maven.apache.org</url>
+  <parent>
+    <groupId>com.toanvn.examples</groupId>
+    <artifactId>mainmodule</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -15,4 +20,8 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <finalName>${module1Name}</finalName>
+  </build>
 </project>

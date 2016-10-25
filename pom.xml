@@ -5,7 +5,7 @@
   <artifactId>mainmodule</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>submodule2</name>
+  <name>main-module</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -19,4 +19,34 @@
     <module>submodule1</module>
     <module>submodule2</module>
   </modules>
+
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <module1Name>dev module 1</module1Name>
+        <module2Name>dev module 2</module2Name>
+      </properties>
+      <activation>
+        <property>
+          <name>env</name>
+          <value>dev</value>
+        </property>
+      </activation>
+    </profile>
+    <profile>
+      <id>pro</id>
+      <properties>
+        <module1Name>pro module 1</module1Name>
+        <module2Name>pro module 2</module2Name>
+      </properties>
+      <activation>
+        <property>
+          <name>env</name>
+          <value>pro</value>
+        </property>
+      </activation>
+    </profile>
+
+  </profiles>
 </project>
