@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.toanvn.examples</groupId>
   <artifactId>submodule1</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>submodule1</name>
   <url>http://maven.apache.org</url>
@@ -12,7 +12,30 @@
     <artifactId>mainmodule</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
+
+  <properties>
+    <spring.version>4.0.1.RELEASE</spring.version>
+  </properties>
+
   <dependencies>
+    <!-- Spring dependencies -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -23,5 +46,16 @@
 
   <build>
     <finalName>${module1Name}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <path>/</path>
+          <port>9999</port>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
